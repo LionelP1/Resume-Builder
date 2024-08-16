@@ -1,9 +1,9 @@
-export const formConfigs = {
+export const formConfig = {
     information: [
-        { name: "fullName", type: "text", placeholder: "Job Title" },
-        { name: "email", type: "text", placeholder: "Company Name" },
-        { name: "phoneNumber", type: "text", placeholder: "Start Date" },
-        { name: "location", type: "text", placeholder: "End Date" },
+        { name: "fullName", type: "text", placeholder: "Full Name" },
+        { name: "email", type: "text", placeholder: "Email" },
+        { name: "phoneNumber", type: "text", placeholder: "Phone Number" },
+        { name: "location", type: "text", placeholder: "Location" },
       ],
 
     education: [
