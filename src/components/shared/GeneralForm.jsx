@@ -19,7 +19,7 @@ const GenerateForm = ({section}) => {
 
   return (
     <form>
-      {formConfig[section].map((field) => (
+      {formConfig[section].fields.map((field) => (
         <div key={field.name}>
           <label htmlFor={field.name}>{field.placeholder}</label>
           {field.type === "textarea" ? (
