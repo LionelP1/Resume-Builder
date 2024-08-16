@@ -4,10 +4,12 @@ import { formConfig } from '../../formConfig.js';
 
 const SectionDropdown = ({ section }) => {
     const [isExpanded, setIsExpanded] = useState(false);
+    const [isAddingNew, setIsAddingNew] = useState(false);
 
     const toggleDropdown = () => {
         setIsExpanded(!isExpanded);
     };
+
 
 
     const handleEdit = () => {
@@ -20,18 +22,24 @@ const SectionDropdown = ({ section }) => {
 
     return (
         <div>
-            <div onClick={toggleDropdown} style={{ cursor: 'pointer', backgroundColor: '#f0f0f0', padding: '10px', marginBottom: '5px' }}>
+            <div onClick={toggleDropdown}>
                 {section}
             </div>
             {isExpanded && (
                 <div>
                     {formConfig[section].allowMultiple ? (
                         <div>
-                            <h1>List goes here</h1>
-                            <button onClick={() => setIsExpanded(true)}>Add New {section}</button>
+                            {isAddingNew ? (
+                                <GenerateForm section={section} />
+                            ) : (
+                                <div>
+                                    <h1>List goes here</h1>
+                                    <button onClick={setIsAddingNew}>Add New {section}</button>
+                                </div>
+                            )}
                         </div>
                     ) : (
-                        <GenerateForm section={section}/>
+                        <GenerateForm section={section} />
                     )}
                 </div>
             )}
