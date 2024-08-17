@@ -56,8 +56,12 @@ const GenerateForm = ({section}) => {
         <button type="button" onClick={handleCancel}>Cancel</button>
         <button type="submit">Save</button>
       </div>
+      <h3>{JSON.stringify(formData, null, 2)}</h3>
     </form>
   );
 };
 
 export default GenerateForm;
+
+
+

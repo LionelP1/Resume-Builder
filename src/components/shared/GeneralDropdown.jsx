@@ -8,6 +8,7 @@ const SectionDropdown = ({ section }) => {
 
     const toggleDropdown = () => {
         setIsExpanded(!isExpanded);
+        setIsAddingNew(false);
     };
 
 
@@ -48,3 +49,5 @@ const SectionDropdown = ({ section }) => {
 };
 
 export default SectionDropdown;
+
+
