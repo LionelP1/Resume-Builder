@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { formConfig } from '../../formConfig.js';
 
 const GenerateForm = ({section}) => {
 
+  const [formData, setFormData] = useState({});
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevData => ({
+      ...prevData,
+      [name]: value
+    }));
+  };
 
   const handleClear = () => {
+    setFormData({});
   };
+
 
   const handleCancel = () => {
 
@@ -18,18 +29,24 @@ const GenerateForm = ({section}) => {
 
 
   return (
-    <form>
+    <form onSubmit={handleSave}>
       {formConfig[section].fields.map((field) => (
         <div key={field.name}>
           <label htmlFor={field.name}>{field.placeholder}</label>
           {field.type === "textarea" ? (
             <textarea
+              name={field.name}
               placeholder={field.placeholder}
+              value={formData[field.name] || ''}
+              onChange={handleChange}
             />
           ) : (
             <input
+              name={field.name}
               type={field.type}
               placeholder={field.placeholder}
+              value={formData[field.name] || ''}
+              onChange={handleChange}
             />
           )}
         </div>
@@ -37,9 +54,8 @@ const GenerateForm = ({section}) => {
       <div>
         <button type="button" onClick={handleClear}>Clear</button>
         <button type="button" onClick={handleCancel}>Cancel</button>
-        <button type="submit" onClick={handleSave}>Save</button>
+        <button type="submit">Save</button>
       </div>
-
     </form>
   );
 };
