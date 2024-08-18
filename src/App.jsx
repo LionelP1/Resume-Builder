@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import ExperienceSection from './components/experience/ExperienceSection.jsx';
 import ResumeSection from './components/shared/ResumeSection.jsx';
 
 const App = () => {
